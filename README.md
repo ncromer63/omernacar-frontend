@@ -1,110 +1,191 @@
-https://omernacar-frontend.vercel.app
+https://omernacar-frontend.vercel.app/
 
 # Kampüs Etkinlikleri — Vize Teslim Projesi
 
-Bu proje, **React**, **TypeScript**, **Vite**, **React Router** ve **Context API** kullanılarak geliştirilmiş, üniversite kampüsündeki seminer, atölye, söyleşi ve yarışma etkinliklerinin listelendiği, filtrelendiği ve yönetildiği tek sayfa uygulamasıdır (SPA).
-
-## Öğrenci ve Yayın Bilgileri
-- **Ad Soyad:** Ömer Nacar
-- **Öğrenci No:** 2416501085
-- **Tema Rengi:** Vişne Çürüğü (`--ton: 346`, `hsl(var(--ton) 65% 32%)`)
-- **Vercel Canlı Link:** [https://omernacar-frontend.vercel.app](https://omernacar-frontend.vercel.app)
-- **GitHub Deposu:** [https://github.com/ncromer63/omernacar-frontend](https://github.com/ncromer63/omernacar-frontend)
-- **Yerel Geliştirme (Local):** `http://localhost:5173/` (`npm install` ardından `npm run dev`)
+Üniversite Kampüs Etkinlikleri web uygulamasının **Vite + React + TypeScript**, **React Router (10 Rota)** ve **Context API** mimarisiyle geliştirilmiş vize teslim sürümüdür. Uygulama; kampüsteki seminer, atölye, söyleşi ve yarışma etkinliklerinin listelenmesi, anlık aranması, kategoriye göre filtrelenmesi, detaylarının incelenmesi ve yönetim paneli üzerinden ekleme, güncelleme ve onaylı silme (CRUD) işlemlerinin yapılmasını sağlar.
 
 ---
 
-## Klasör ve Dosya Yapısı
+## 🌐 Yayın ve Çalıştırma Adresleri
 
-```text
-src/
-├── components/
-│   ├── layout/
-│   │   ├── Header.tsx         # Aktif rotaya ve seçili etkinliğe göre dinamik başlık, alt yazı ve sekme adı (document.title) bileşeni
-│   │   ├── Navigation.tsx     # NavLink ile aktif sayfa vurgulu (aria-current="page") 4 ana menü bağlantısı
-│   │   └── Footer.tsx         # Öğrenci künyesini (Ömer Nacar · 2416501085 · 2026) barındıran alt bilgi bileşeni
-│   ├── events/
-│   │   ├── EventCard.tsx      # Tek bir etkinlik kartının görselleştirilmesi ve detay sayfasına yönlendirme linki
-│   │   ├── EventList.tsx      # Etkinlik dizisini dönüp EventCard'ları listeleyen veya boş durum mesajı gösteren ortak bileşen
-│   │   ├── EventFilter.tsx    # Başlık/açıklama arama kutusu ve kategori seçim formu (controlled inputs)
-│   │   └── EventDetail.tsx    # Tekil etkinliğin afiş, künye (dl/dt/dd) ve açıklama detay bloğu
-│   └── forms/
-│       └── EventForm.tsx      # Etkinlik Ekle ve Etkinlik Güncelle sayfalarında kullanılan doğrulamalı ortak form bileşeni
-├── context/
-│   └── EventsContext.tsx      # EventsProvider ve useEvents kancası ile tüm sayfalara bağlı merkezi CRUD state yönetimi
-├── data/
-│   └── events.ts              # 6 adet tipli başlangıç etkinlik verisi (initialEvents)
-├── pages/
-│   ├── HomePage.tsx           # / — Tarihe göre yaklaşan ilk 2 etkinliği listeleyen ana sayfa
-│   ├── EventsPage.tsx         # /events — Arama ve kategori filtreleme özellikli tüm etkinlikler sayfası
-│   ├── EventDetailPage.tsx    # /events/:id — URL parametresindeki ID'ye göre etkinlik detayını gösteren sayfa
-│   ├── AdminPage.tsx          # /admin — Etkinlik yönetim tablosu, düzenleme linki ve silmeden önce onay (window.confirm) işlemi
-│   ├── EtkinlikEkle.tsx       # /admin/new — Yeni etkinlik ekleme sayfası (Context üzerinden ekler ve /admin'e yönlendirir)
-│   ├── EtkinlikGuncelle.tsx   # /admin/:id/edit — Mevcut etkinliği güncelleyen sayfa (Context üzerinden günceller ve /admin'e yönlendirir)
-│   ├── LoginPage.tsx          # /login — E-posta ve şifre doğrulamalı giriş sayfası
-│   ├── RegisterPage.tsx       # /register — Ad soyad, e-posta, şifre ve şifre tekrarı doğrulamalı kayıt sayfası
-│   ├── ForgotPasswordPage.tsx # /forgot-password — E-posta doğrulamalı şifre sıfırlama bağlantısı gönderim sayfası
-│   └── NotFoundPage.tsx       # * — Bulunamayan sayfa veya etkinlikler için 404 karşılama ekranı
-├── types/
-│   └── campus-event.ts        # Category, CampusEvent ve EventFormData TypeScript veri tipleri
-├── utils/
-│   ├── filter-events.ts       # searchEvents, filterByCategory ve findEventById saf (pure) fonksiyonları
-│   └── format-date.ts         # ISO tarih dizgesini Türkçe uzun tarih formatına çeviren yardımcı fonksiyon
-├── App.css                    # Vişne çürüğü CSS değişkenleri, responsive grid, form hata stilleri ve mobil tablo görünümü
-├── App.tsx                    # Header, Navigation, 10 adet Route tanımı ve Footer ana bileşeni
-├── index.css                  # Genel stil sıfırlama dosyası
-└── main.tsx                   # BrowserRouter ve EventsProvider sarmalayıcılarıyla React uygulamasını başlatan kök dosya
-```
+| Ortam / Kaynak | Adres | Açıklama |
+|---|---|---|
+| **Vercel Canlı Link** | [https://omernacar-frontend.vercel.app](https://omernacar-frontend.vercel.app) | Canlı üretim (Production) ortamı |
+| **GitHub Deposu** | [https://github.com/ncromer63/omernacar-frontend](https://github.com/ncromer63/omernacar-frontend) | Public kaynak kod deposu |
+| **Yerel Geliştirme (Local)** | `http://localhost:5173` | Vite geliştirme sunucusu (`npm run dev`) |
+| **Yerel Önizleme (Preview)** | `http://localhost:4173` | Production build önizlemesi (`npm run preview`) |
+
+- **Vercel Yapılandırması:** Framework Preset: `Vite`, SPA yönlendirmeleri `vercel.json` ile yapılandırılmıştır.
 
 ---
 
-## Tanımlanan 10 Adet Router (`src/App.tsx`)
+## 🚀 Hızlı Başlangıç ve Local Test
 
-| # | Rota (Path) | Sayfa Bileşeni | Açıklama |
-|---|---|---|---|
-| 1 | `/` | `HomePage` | Tarihe göre yaklaşan 2 etkinlik ve tüm etkinliklere geçiş butonu |
-| 2 | `/events` | `EventsPage` | Tüm etkinliklerin listesi, canlı metin araması ve kategori filtresi |
-| 3 | `/events/:id` | `EventDetailPage` | Seçilen etkinliğin afişi, künyesi, açıklaması ve güncelleme bağlantısı |
-| 4 | `/admin` | `AdminPage` | Etkinlik yönetim tablosu, yeni etkinlik ekleme, düzenleme ve onaylı silme |
-| 5 | `/admin/new` | `EtkinlikEkle` | Doğrulamalı yeni etkinlik ekleme formu |
-| 6 | `/admin/:id/edit` | `EtkinlikGuncelle` | Mevcut etkinlik verileriyle dolu doğrulamalı güncelleme formu |
-| 7 | `/login` | `LoginPage` | E-posta (`@`) ve şifre (en az 6 karakter) doğrulamalı giriş formu |
-| 8 | `/register` | `RegisterPage` | Ad soyad (en az 3 karakter), e-posta, şifre ve şifre tekrar doğrulamalı kayıt formu |
-| 9 | `/forgot-password` | `ForgotPasswordPage` | Kayıtlı e-posta doğrulamalı şifre yenileme formu |
-| 10 | `*` | `NotFoundPage` | Geçersiz adres veya silinmiş etkinliklerde gösterilen 404 sayfası |
+Projeyi yerel ortamınızda çalıştırmak için sadece **Node.js (v18+)** ve **npm** yeterlidir.
 
----
+### Gereksinimler
 
-## Kurulum ve Çalıştırma Komutları
+- **[Node.js LTS](https://nodejs.org/)** (v18 veya v22+ önerilir, `npm` birlikte gelir)
+
+### Adım Adım Kurulum
+
+#### 1. Bağımlılıkları Yükleyin
 
 ```bash
-# Bağımlılıkları yükle
+npm install
+```
+
+#### 2. Geliştirme Sunucusunu Başlatın
+
+```bash
+npm run dev
+```
+
+#### 3. Tarayıcıda Açın
+
+```text
+http://localhost:5173
+```
+
+#### 4. Yönetim Paneli ve Form Sayfaları
+
+| Sayfa | Adres | Açıklama |
+|---|---|---|
+| **Yönetim Paneli** | `http://localhost:5173/admin` | Etkinlik tablosu, düzenleme ve onaylı silme |
+| **Etkinlik Ekle** | `http://localhost:5173/admin/new` | Doğrulamalı yeni etkinlik ekleme formu |
+| **Giriş Yap** | `http://localhost:5173/login` | E-posta ve şifre doğrulamalı giriş ekranı |
+| **Kayıt Ol** | `http://localhost:5173/register` | Şifre eşleşme kontrollü kayıt ekranı |
+
+> Başlangıçta `src/data/events.ts` içindeki 6 adet örnek kampüs etkinliği `EventsContext` üzerinden otomatik yüklenir; ek bir veritabanı kurulumu gerekmez.
+
+---
+
+## 🛠️ Kullanım Komutları
+
+```bash
+# Bağımlılıkları kur
 npm install
 
-# Geliştirme sunucusunu başlat (http://localhost:5173)
+# Geliştirme sunucusunu başlat (HMR aktif)
 npm run dev
 
-# TypeScript tip kontrolü ve üretim (production) derlemesi al
+# TypeScript tip kontrolü yap ve üretim (production) paketini derle
 npm run build
 
-# Üretim derlemesini yerel olarak önizle
+# Derlenen üretim paketini (dist/) yerel sunucuda test et
 npm run preview
 ```
 
 ---
 
-## Teslim Öncesi Kontrol Listesi (13 Madde)
+## 🗺️ Rotalar ve Sayfalar (10 Adet Router)
 
-- [x] **1. Tüm linkler çalışıyor:** Menü (`Ana Sayfa`, `Etkinlikler`, `Yönetim`, `Giriş`), kart detay linkleri, yönetim butonları ve form alt bağlantıları eksiksiz çalışmaktadır.
-- [x] **2. Tüm sayfalar hazır:** 10 sayfanın tamamı örnek sitedeki içerik ve işlevlerle birebir hazırlanmıştır.
-- [x] **3. Klasör ve dosya yapısı oluşturuldu:** `components`, `context`, `data`, `pages`, `types`, `utils` klasör yapısı kuruldu.
-- [x] **4. 10 adet router tanımlandı:** `src/App.tsx` içinde `<Routes>` altında 10 adet `<Route>` tanımlandı.
-- [x] **5. Context kullanıldı ve tüm sayfalara bağlandı:** `EventsContext` (`EventsProvider` ve `useEvents`) ile tüm sayfalar merkezi veriye bağlandı.
-- [x] **6. Ekle, sil, güncelle ve silmeden önce onay çalışıyor; etkisi diğer sayfalarda görülüyor:** `window.confirm` ile silme onayı alınmakta; ekleme, güncelleme ve silme işlemleri tüm sayfalara anında yansımaktadır.
-- [x] **7. Son çalışır proje GitHub'a gönderildi:** Tüm kaynak kodlar public GitHub deposuna aktarıldı.
-- [x] **8. Proje Vercel'de `isimsoyisim-frontend.vercel.app` adresiyle yayında:** SPA yönlendirmeleri için `vercel.json` eklendi ve `omernacar-frontend.vercel.app` adresine uyumlu yapılandırıldı.
-- [x] **9. README yazıldı, Vercel linki README'ye eklendi:** İlk satırda ve yayın bilgileri bölümünde canlı Vercel linki yer almaktadır.
-- [x] **10. Mobil görünüm doğru çalışıyor:** 700px altında ızgara tek sütuna düşmekte ve yönetim tablosu `data-baslik` öznitelikleriyle mobil kart görünümüne dönüşmektedir.
-- [x] **11. CSS bozulması yok. Sayfa düzgün görünüyor:** Vişne çürüğü tema değişkenleri, `Palatino Linotype` yazı tipi ve 44px dokunma alanlarıyla (`--dokunma: 44px`) hatasız görünüm sağlandı.
-- [x] **12. Arama ve filtreleme çalışıyor:** Başlık ve açıklama içinde Türkçe küçük/büyük harf duyarlı arama ile kategori filtreleme birlikte çalışmaktadır.
-- [x] **13. Form doğrulama çalışıyor (etkinlik formu, giriş, kayıt, şifremi unuttum):** Dört formun tamamında alan bazlı doğrulama, `aria-invalid` işaretlemesi ve `.hata-metni` uyarıları çalışmaktadır.
+Uygulamada `react-router-dom` kullanılarak `src/App.tsx` içerisinde tam **10 adet rota** tanımlanmıştır:
+
+| # | Rota (Path) | Bileşen | Görevi ve Özellikleri |
+|---|---|---|---|
+| 1 | `/` | `HomePage.tsx` | Tarihe göre yaklaşan ilk 2 etkinliği (`sort + slice`) listeler |
+| 2 | `/events` | `EventsPage.tsx` | Tüm etkinlikleri listeler; anlık metin arama ve kategori filtreleme sunar |
+| 3 | `/events/:id` | `EventDetailPage.tsx` | Seçilen etkinliğin afişi, künyesi, açıklaması ve güncelleme butonunu gösterir |
+| 4 | `/admin` | `AdminPage.tsx` | Tüm etkinlikleri tabloda listeler; düzenleme ve `window.confirm` onaylı silme yapar |
+| 5 | `/admin/new` | `EtkinlikEkle.tsx` | Yeni etkinlik oluşturur, Context'e kaydeder ve `/admin` sayfasına yönlendirir |
+| 6 | `/admin/:id/edit` | `EtkinlikGuncelle.tsx` | Seçili etkinliğin mevcut verilerini forma doldurur ve günceller |
+| 7 | `/login` | `LoginPage.tsx` | E-posta (`@`) ve şifre (en az 6 karakter) doğrulamalı giriş formu |
+| 8 | `/register` | `RegisterPage.tsx` | Ad soyad (en az 3 karakter), e-posta, şifre ve şifre tekrarı doğrulamalı kayıt formu |
+| 9 | `/forgot-password` | `ForgotPasswordPage.tsx` | Kayıtlı e-posta doğrulaması ve şifre sıfırlama bağlantısı simülasyonu |
+| 10 | `*` | `NotFoundPage.tsx` | Geçersiz URL veya bulunamayan etkinliklerde açılan 404 sayfası |
+
+---
+
+## 📂 Klasör Yapısı ve Dosyaların Görevleri
+
+```text
+omernacar-frontend/
+├── public/
+│   ├── afis.svg                   # Kariyer Günleri 2026 etkinlik afişi (vektörel)
+│   └── favicon.svg                # Sekme ikonu (Vişne çürüğü temalı)
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Header.tsx         # Rotaya göre dinamik başlık, alt yazı ve sekme adı (document.title)
+│   │   │   ├── Navigation.tsx     # NavLink ile aktif sayfa vurgulu (aria-current="page") menü
+│   │   │   └── Footer.tsx         # Öğrenci künyesini barındıran alt bilgi bileşeni
+│   │   ├── events/
+│   │   │   ├── EventCard.tsx      # Tek bir etkinlik kartının görselleştirilmesi
+│   │   │   ├── EventList.tsx      # Etkinlik dizisini dönüp EventCard'ları listeleyen ortak bileşen
+│   │   │   ├── EventFilter.tsx    # Arama kutusu ve kategori seçim formu (Controlled inputs)
+│   │   │   └── EventDetail.tsx    # Tekil etkinliğin afiş, künye ve açıklama detay bloğu
+│   │   └── forms/
+│   │       └── EventForm.tsx      # Etkinlik Ekle ve Güncelle sayfalarında kullanılan ortak doğrulamalı form
+│   ├── context/
+│   │   └── EventsContext.tsx      # EventsProvider ve useEvents ile merkezi CRUD state yönetimi
+│   ├── data/
+│   │   └── events.ts              # 6 adet tipli etkinlik başlangıç verisi (initialEvents)
+│   ├── pages/
+│   │   ├── HomePage.tsx           # Ana sayfa (Yaklaşan 2 etkinlik)
+│   │   ├── EventsPage.tsx         # Tüm etkinlikler, arama ve filtreleme sayfası
+│   │   ├── EventDetailPage.tsx    # Etkinlik detay sayfası
+│   │   ├── AdminPage.tsx          # Etkinlik yönetim tablosu ve silme onayı sayfası
+│   │   ├── EtkinlikEkle.tsx       # Yeni etkinlik ekleme sayfası
+│   │   ├── EtkinlikGuncelle.tsx   # Mevcut etkinliği güncelleme sayfası
+│   │   ├── LoginPage.tsx          # Giriş yap sayfası ve form doğrulaması
+│   │   ├── RegisterPage.tsx       # Kayıt ol sayfası ve form doğrulaması
+│   │   ├── ForgotPasswordPage.tsx # Şifremi unuttum sayfası ve form doğrulaması
+│   │   └── NotFoundPage.tsx       # 404 Sayfa bulunamadı ekranı
+│   ├── types/
+│   │   └── campus-event.ts        # Category, CampusEvent ve EventFormData tipleri
+│   ├── utils/
+│   │   ├── filter-events.ts       # Arama, kategori filtreleme ve ID ile bulma saf fonksiyonları
+│   │   └── format-date.ts         # Türkçe tarih formatlama yardımcı fonksiyonu
+│   ├── App.css                    # Uygulama stilleri (Öğrenci No: 2416501085, Vişne Çürüğü tema, responsive)
+│   ├── App.tsx                    # Ana orkestrasyon bileşeni ve 10 adet Route tanımı
+│   ├── index.css                  # Genel CSS sıfırlama dosyası
+│   └── main.tsx                   # BrowserRouter ve EventsProvider ile React'i başlatan kök dosya
+├── index.html                     # Tek HTML sayfası; div#root kapsayıcısı
+├── package.json                   # Proje adı, bağımlılıklar ve çalışma betikleri (dev, build, preview)
+├── tsconfig.json                  # TypeScript yapılandırma dosyası
+├── vercel.json                    # Vercel SPA yönlendirme (rewrite) kuralları
+└── vite.config.ts                 # Vite ve React eklenti ayarları
+```
+
+### Temel Dosyaların Özeti
+- `package.json` — Proje adı (`omernacar-frontend`), komutlar (`dev`, `build`, `preview`) ve paket listesi.
+- `tsconfig*.json` — Sıkı (`strict: true`, `verbatimModuleSyntax: true`) TypeScript derleyici ayarları.
+- `src/context/EventsContext.tsx` — Tüm sayfalara bağlanan `events` listesi ile `addEvent`, `updateEvent`, `deleteEvent` fonksiyonlarını sağlar.
+- `src/components/forms/EventForm.tsx` — Etkinlik adı (en az 3 karakter), kategori, tarih, saat, yer, kontenjan (1–1000 arası tam sayı) ve açıklama (en az 10 karakter) doğrulamalarını yapar.
+- `src/App.css` — Vişne çürüğü (`--ton: 346`) renk değişkenleri, 700px/1000px responsive kırılımları ve 699px altında tabloyu mobil kartlara dönüştüren `data-baslik` kuralları.
+
+---
+
+## 📌 Sprint Özeti ve Mimari Gelişim
+
+1. **Sprint 1 (HTML, Git ve Yayına Alma):** Semantik HTML5 iskeleti, 5 temel sayfa ve erişilebilir form yapısı.
+2. **Sprint 2 (CSS ve Responsive Tasarım):** Öğrenci numarasına özel CSS değişkenleri, grid kart düzeni, 44px dokunma alanları ve mobil uyumlu tasarım.
+3. **Sprint 3 (JavaScript ve DOM):** Modüler ES yapısı, anlık metin arama + kategori filtreleme ve dinamik detay gösterimi.
+4. **Sprint 4 (Vite, TypeScript ve React):** React + TypeScript (`react-ts`) geçişi, tipli veri (`CampusEvent`), saf filtreleme fonksiyonları (`filter-events.ts`), `useState` ve `useEffect` ile dinamik sekme başlığı.
+5. **Sprint 5 (React Bileşenleri & Modüler Mimari):** Uygulamanın `layout`, `events` ve `forms` altında yeniden kullanılabilir, tipli (`interface`) bileşenlere ayrıştırılması.
+6. **Vize Teslim (React Router, Context API, CRUD & Form Doğrulama):**
+   - `react-router-dom` ile **10 adet rota** tanımlandı.
+   - `EventsContext` ile merkezi durum yönetimi kurularak tüm sayfalara bağlandı.
+   - Ekleme, güncelleme ve silmeden önce onay (`window.confirm`) işlemleri tüm sayfalara anlık yansıyacak şekilde tamamlandı.
+   - Etkinlik formu, Giriş, Kayıt ve Şifremi Unuttum sayfalarında tam kapsamlı form doğrulama (validation) kuralları uygulandı.
+
+---
+
+## 🩺 Sorun Giderme
+
+### Sayfa yenilendiğinde Vercel'de 404 hatası alınırsa
+Proje kök dizinindeki `vercel.json` dosyası tüm alt rotaları (`/events`, `/admin`, `/login` vb.) `index.html`'e yönlendirir. Vercel'de **Root Directory** ayarının proje kökünü gösterdiğinden ve **Framework Preset** değerinin `Vite` olduğundan emin olun.
+
+### Port çakışması (5173 portu doluysa)
+Vite varsayılan olarak `5173` portunu kullanır; doluysa otomatik olarak bir sonraki uygun porta (`5174`) geçer ve terminalde yeni adresi gösterir.
+
+### Derleme (`npm run build`) sırasında tip hatası alınırsa
+Proje `verbatimModuleSyntax` kuralını kullanır. Sadece tip içe aktarırken `import type { CampusEvent }` sözdiziminin kullanıldığından emin olun.
+
+---
+
+## 👤 Öğrenci Bilgileri
+- **Ad Soyad:** Ömer Nacar
+- **Öğrenci No:** 2416501085
+- **GitHub:** [https://github.com/ncromer63](https://github.com/ncromer63)
