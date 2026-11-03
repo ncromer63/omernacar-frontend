@@ -64,6 +64,7 @@ export default function EventForm({ initialData, submitText, onSubmit }) {
           type="text"
           id="title"
           name="title"
+          placeholder="Örn. Kariyer Günleri 2026"
           value={formData.title}
           onChange={handleChange}
           aria-invalid={errors.title ? true : undefined}
@@ -122,6 +123,7 @@ export default function EventForm({ initialData, submitText, onSubmit }) {
           type="text"
           id="location"
           name="location"
+          placeholder="Örn. A Blok Konferans Salonu"
           value={formData.location}
           onChange={handleChange}
           aria-invalid={errors.location ? true : undefined}
@@ -135,6 +137,7 @@ export default function EventForm({ initialData, submitText, onSubmit }) {
           type="number"
           id="capacity"
           name="capacity"
+          placeholder="Örn. 50"
           value={formData.capacity}
           onChange={handleChange}
           aria-invalid={errors.capacity ? true : undefined}
@@ -148,6 +151,7 @@ export default function EventForm({ initialData, submitText, onSubmit }) {
           id="description"
           name="description"
           rows={5}
+          placeholder="Etkinlik hakkında en az 10 karakterlik açıklama..."
           value={formData.description}
           onChange={handleChange}
           aria-invalid={errors.description ? true : undefined}
@@ -163,4 +167,3 @@ export default function EventForm({ initialData, submitText, onSubmit }) {
     </form>
   );
 }
-

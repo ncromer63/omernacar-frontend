@@ -5,20 +5,26 @@ import { useEvents } from '../context/EventsContext';
 const ROUTE_INFO = [
   { path: '/', title: 'Kampüs Etkinlikleri', text: 'Fakültedeki seminer, atölye ve söyleşileri tek yerden takip edin.' },
   { path: '/events', title: 'Tüm Etkinlikler', text: 'Ekim ayında kampüste düzenlenen etkinlikler.' },
+  { path: '/etkinlikler', title: 'Tüm Etkinlikler', text: 'Ekim ayında kampüste düzenlenen etkinlikler.' },
   { path: '/admin', title: 'Etkinlik Yönetimi' },
   { path: '/admin/new', title: 'Etkinlik Ekle' },
+  { path: '/etkinlik-ekle', title: 'Etkinlik Ekle' },
+  { path: '/admin/ekle', title: 'Etkinlik Ekle' },
   { path: '/login', title: 'Giriş Yap' },
+  { path: '/giris', title: 'Giriş Yap' },
   { path: '/register', title: 'Kayıt Ol' },
-  { path: '/forgot-password', title: 'Şifremi Unuttum' }
+  { path: '/kayit', title: 'Kayıt Ol' },
+  { path: '/forgot-password', title: 'Şifremi Unuttum' },
+  { path: '/sifremi-unuttum', title: 'Şifremi Unuttum' }
 ];
 
 export default function Header() {
   const { pathname } = useLocation();
   const { events } = useEvents();
 
-  // Check dynamic detail/edit routes
-  const matchDetail = matchPath('/events/:id', pathname);
-  const matchEdit = matchPath('/admin/:id/edit', pathname);
+  // Dinamik detay ve güncelleme rotalarını eşleştir
+  const matchDetail = matchPath('/events/:id', pathname) || matchPath('/etkinlik-detay/:id', pathname);
+  const matchEdit = matchPath('/admin/:id/edit', pathname) || matchPath('/etkinlik-guncelle/:id', pathname) || matchPath('/admin/:id/guncelle', pathname);
   const match = matchDetail || matchEdit;
 
   const currentEvent = match ? events.find(e => e.id === match.params.id) : undefined;
@@ -41,4 +47,3 @@ export default function Header() {
     </header>
   );
 }
-
