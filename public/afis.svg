@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#485935;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2e3a20;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="480" height="270" rx="8" fill="url(#grad)" />
+  <circle cx="390" cy="80" r="110" fill="#ffffff" opacity="0.08" />
+  <circle cx="100" cy="200" r="140" fill="#ffffff" opacity="0.05" />
+  <g fill="#ffffff">
+    <rect x="40" y="45" width="90" height="26" rx="4" fill="#a4b88e" />
+    <text x="85" y="62" font-family="'Palatino Linotype', Palatino, serif" font-size="13" font-weight="bold" fill="#202916" text-anchor="middle">SEMİNER</text>
+    
+    <text x="40" y="115" font-family="'Palatino Linotype', Palatino, serif" font-size="28" font-weight="bold">Kariyer Günleri 2026</text>
+    <text x="40" y="145" font-family="'Palatino Linotype', Palatino, serif" font-size="16" opacity="0.9">Mezunlarla Kariyer Söyleşileri ve Şirket Standları</text>
+    
+    <path d="M40 180 h400 v1 h-400 Z" fill="#ffffff" opacity="0.25" />
+    
+    <text x="40" y="215" font-family="'Palatino Linotype', Palatino, serif" font-size="14" opacity="0.95">📍 A Blok Konferans Salonu</text>
+    <text x="260" y="215" font-family="'Palatino Linotype', Palatino, serif" font-size="14" opacity="0.95">📅 12 Ekim 2026 · 14:00</text>
+  </g>
+</svg>
