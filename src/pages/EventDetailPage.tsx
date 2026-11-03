@@ -11,3 +11,4 @@ export default function EventDetailPage() {
 
   return event ? <EventDetail event={event} /> : <NotFoundPage />;
 }
+

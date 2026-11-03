@@ -21,3 +21,4 @@ export interface EventFormData {
   capacity: string;
   description: string;
 }
+

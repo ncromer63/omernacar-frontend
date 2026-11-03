@@ -63,3 +63,4 @@ export const initialEvents: CampusEvent[] = [
     description: "Büyük dil modelleri nasıl çalışır? Temel kavramlar ve örnekler.",
   },
 ];
+

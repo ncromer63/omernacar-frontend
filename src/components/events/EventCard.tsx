@@ -28,3 +28,4 @@ export default function EventCard({ event }: EventCardProps) {
     </article>
   );
 }
+

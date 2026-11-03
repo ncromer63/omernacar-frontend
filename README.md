@@ -7,7 +7,7 @@ Bu proje, **React**, **TypeScript**, **Vite**, **React Router** ve **Context API
 ## Öğrenci ve Yayın Bilgileri
 - **Ad Soyad:** Ömer Nacar
 - **Öğrenci No:** 2416501085
-- **Tema Rengi:** Haki Yeşil (`--ton: 85`, `hsl(var(--ton) 45% 32%)`)
+- **Tema Rengi:** Vişne Çürüğü (`--ton: 346`, `hsl(var(--ton) 65% 32%)`)
 - **Vercel Canlı Link:** [https://omernacar-frontend.vercel.app](https://omernacar-frontend.vercel.app)
 - **GitHub Deposu:** [https://github.com/ncromer63/omernacar-frontend](https://github.com/ncromer63/omernacar-frontend)
 - **Yerel Geliştirme (Local):** `http://localhost:5173/` (`npm install` ardından `npm run dev`)
@@ -50,7 +50,7 @@ src/
 ├── utils/
 │   ├── filter-events.ts       # searchEvents, filterByCategory ve findEventById saf (pure) fonksiyonları
 │   └── format-date.ts         # ISO tarih dizgesini Türkçe uzun tarih formatına çeviren yardımcı fonksiyon
-├── App.css                    # Haki yeşil CSS değişkenleri, responsive grid, form hata stilleri ve mobil tablo görünümü
+├── App.css                    # Vişne çürüğü CSS değişkenleri, responsive grid, form hata stilleri ve mobil tablo görünümü
 ├── App.tsx                    # Header, Navigation, 10 adet Route tanımı ve Footer ana bileşeni
 ├── index.css                  # Genel stil sıfırlama dosyası
 └── main.tsx                   # BrowserRouter ve EventsProvider sarmalayıcılarıyla React uygulamasını başlatan kök dosya
@@ -105,6 +105,6 @@ npm run preview
 - [x] **8. Proje Vercel'de `isimsoyisim-frontend.vercel.app` adresiyle yayında:** SPA yönlendirmeleri için `vercel.json` eklendi ve `omernacar-frontend.vercel.app` adresine uyumlu yapılandırıldı.
 - [x] **9. README yazıldı, Vercel linki README'ye eklendi:** İlk satırda ve yayın bilgileri bölümünde canlı Vercel linki yer almaktadır.
 - [x] **10. Mobil görünüm doğru çalışıyor:** 700px altında ızgara tek sütuna düşmekte ve yönetim tablosu `data-baslik` öznitelikleriyle mobil kart görünümüne dönüşmektedir.
-- [x] **11. CSS bozulması yok. Sayfa düzgün görünüyor:** Haki yeşil tema değişkenleri, `Palatino Linotype` yazı tipi ve 44px dokunma alanlarıyla (`--dokunma: 44px`) hatasız görünüm sağlandı.
+- [x] **11. CSS bozulması yok. Sayfa düzgün görünüyor:** Vişne çürüğü tema değişkenleri, `Palatino Linotype` yazı tipi ve 44px dokunma alanlarıyla (`--dokunma: 44px`) hatasız görünüm sağlandı.
 - [x] **12. Arama ve filtreleme çalışıyor:** Başlık ve açıklama içinde Türkçe küçük/büyük harf duyarlı arama ile kategori filtreleme birlikte çalışmaktadır.
 - [x] **13. Form doğrulama çalışıyor (etkinlik formu, giriş, kayıt, şifremi unuttum):** Dört formun tamamında alan bazlı doğrulama, `aria-invalid` işaretlemesi ve `.hata-metni` uyarıları çalışmaktadır.

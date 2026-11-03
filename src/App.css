@@ -1,13 +1,13 @@
 /* Ömer Nacar — 2416501085 */
 :root {
   --no: 2416501085;
-  --ton: 85; /* Haki Yeşil (Khaki / Olive Green) */
-  --renk-ana: hsl(var(--ton) 45% 32%);
-  --renk-ana-koyu: hsl(var(--ton) 48% 23%);
-  --renk-yardimci: hsl(calc(var(--ton) + 180) 40% 42%);
-  --renk-zemin: hsl(var(--ton) 25% 97%);
+  --ton: 346; /* Vişne Çürüğü (Dark Cherry / Burgundy) */
+  --renk-ana: hsl(var(--ton) 65% 32%);
+  --renk-ana-koyu: hsl(var(--ton) 68% 23%);
+  --renk-yardimci: hsl(calc(var(--ton) + 180) 50% 38%);
+  --renk-zemin: hsl(var(--ton) 28% 97%);
   --renk-kart: #fff;
-  --renk-kenar: hsl(var(--ton) 20% 84%);
+  --renk-kenar: hsl(var(--ton) 20% 85%);
   --renk-metin: hsl(var(--ton) 25% 15%);
   --renk-soluk: hsl(var(--ton) 14% 38%);
   --renk-baslik-yazi: #fff;
@@ -460,3 +460,4 @@ footer {
     font-weight: 700;
   }
 }
+
