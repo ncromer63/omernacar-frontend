@@ -103,7 +103,7 @@ Uygulamada `react-router-dom` kullanılarak `src/App.tsx` içerisinde tam **10 a
 omernacar-frontend/
 ├── public/
 │   ├── afis.svg                   # Kariyer Günleri 2026 etkinlik afişi (vektörel)
-│   └── favicon.svg                # Sekme ikonu (Vişne çürüğü temalı)
+│   └── favicon.svg                # Varsayılan Vite sekme ikonu
 ├── src/
 │   ├── components/
 │   │   ├── layout/
