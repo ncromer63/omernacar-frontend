@@ -15,7 +15,7 @@ export default function HomePage() {
     <>
       <h2 className="bolum-baslik">Yaklaşan 2 Etkinlik</h2>
       <EventList events={upcomingEvents} />
-      <p style={{ marginTop: 'var(--bosluk-m)' }}>
+      <p>
         <Link className="buton" to="/events">
           Tüm etkinlikleri gör
         </Link>

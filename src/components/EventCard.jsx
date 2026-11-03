@@ -21,3 +21,4 @@ export default function EventCard({ event }) {
     </article>
   );
 }
+

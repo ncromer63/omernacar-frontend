@@ -10,16 +10,25 @@ export default function EventsPage() {
 
   const categories = [...new Set(events.map(e => e.category))];
 
-  // Filtering
+  // Filtering supporting both Turkish case-insensitive and exact query match
   const filteredEvents = events.filter(item => {
-    const query = searchText.trim().toLowerCase();
-    const matchesSearch = query === '' ||
-      item.title.toLowerCase().includes(query) ||
-      item.description.toLowerCase().includes(query);
+    const rawQuery = searchText.trim();
+    if (rawQuery !== '') {
+      const lowerQuery = rawQuery.toLocaleLowerCase('tr-TR');
+      const titleLower = item.title.toLocaleLowerCase('tr-TR');
+      const descLower = item.description.toLocaleLowerCase('tr-TR');
+      const matchesSearch = titleLower.includes(lowerQuery) ||
+        descLower.includes(lowerQuery) ||
+        item.title.includes(rawQuery) ||
+        item.description.includes(rawQuery);
+      if (!matchesSearch) return false;
+    }
 
-    const matchesCategory = category === '' || item.category === category;
+    if (category !== '' && item.category !== category) {
+      return false;
+    }
 
-    return matchesSearch && matchesCategory;
+    return true;
   });
 
   return (

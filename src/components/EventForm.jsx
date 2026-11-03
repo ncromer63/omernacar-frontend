@@ -163,3 +163,4 @@ export default function EventForm({ initialData, submitText, onSubmit }) {
     </form>
   );
 }
+

@@ -69,3 +69,4 @@ export default function EventDetailPage() {
     </article>
   );
 }
+

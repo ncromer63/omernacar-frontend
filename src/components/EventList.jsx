@@ -14,3 +14,4 @@ export default function EventList({ events, emptyText = 'Gösterilecek etkinlik 
     </section>
   );
 }
+

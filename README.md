@@ -71,3 +71,4 @@ Uygulamada tam 10 adet sayfa rotası tanımlanmış ve merkezi olarak yönetilme
 | 11 | **CSS bozulması yok. Sayfa düzgün görünüyor** | ✅ Tamamlandı (Haki yeşil tasarım sistemi) |
 | 12 | **Arama ve filtreleme çalışıyor** | ✅ Tamamlandı (Başlık/açıklama araması + Kategori filtresi) |
 | 13 | **Form doğrulama çalışıyor (etkinlik formu, giriş, kayıt, şifremi unuttum)** | ✅ Tamamlandı |
+
